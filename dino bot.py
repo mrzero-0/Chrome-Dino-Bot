@@ -4,7 +4,7 @@ of the screen and scan for pixels that is equal to the gray value 83,if we find
 that pixel we hit key accordingly
 '''
 import pyautogui
-from PIL import Image, ImageGrab
+from PIL import ImageGrab
 import time
 
 # helper Function gor handling key press
