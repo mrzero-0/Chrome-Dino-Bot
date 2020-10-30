@@ -33,6 +33,14 @@ y_bird = 275  # for the birds
 while True:
     # initial time
     t1 = time.time()
+    # increase the search width every second to simulate the dino acceleration
+    if math.floor(total_time) != last:
+        if x_end < x2:
+            x_end += 4
+        else:
+            x_end = x2
+        last = math.floor(total_time)
+
     # Get a screen shot of Area of interest
     AoI = gui.screenshot(region=(x1, y1, x2, y2)).convert("L")
     # AoI.show()
