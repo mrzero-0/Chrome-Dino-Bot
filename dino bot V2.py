@@ -22,6 +22,9 @@ def getPixel(img, x, y):
 # of diagonal
 x1, y1, x2, y2 = 0, 293, 1920, 465
 
+# the intervals where the bot will search for obstacles
+y_cactie, x_start, x_end = 350, 435, 450
+y_bird = 275  # for the birds
 # main bot loop
 while True:
     # Get a screen shot
@@ -29,5 +32,12 @@ while True:
     # sct_img.show()
     # Get the color of the world background
     bgColor = getPixel(sct_img, 440, 30)
-    print(bgColor)
-    break
+    # print(bgColor)
+
+    for i in reversed(range(x_start, x_end)):
+        # if i found a pixel in the search interval with a colour other than the bg colour,
+        # then it is an obstacle
+        if getPixel(sct_img, i, y_cactie) != bgColor\
+                or getPixel(sct_img, i, y_bird) != bgColor:
+            keyboard.press(' ')  # jump
+            break
