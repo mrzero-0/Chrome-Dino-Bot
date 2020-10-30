@@ -48,8 +48,8 @@ while True:
 
     # Get a screen shot of Area of interest
     AoI = gui.screenshot(region=(x1, y1, x2, y2)).convert("L")
-    AoI.show()
-    break
+#     AoI.show()
+#     break
     # Get the color of the world background
     bgColor = getPxl(AoI, 440, 30)
     # print(bgColor)
