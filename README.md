@@ -21,4 +21,4 @@ This repository contains two versions of the Dino Bot V1 is the basic version an
 - First of all open _chrome://dino_ in your chrome browser
 - Now run either script V1 or V2
 - Now quickly shift to the chrome browser and make sure its maximized
--Enjoy :bowtie: :relieved:
+- Enjoy :bowtie: :relieved:
