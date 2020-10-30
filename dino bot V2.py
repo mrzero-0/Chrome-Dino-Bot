@@ -13,7 +13,7 @@ import math
 # Function to get pixel value
 
 
-def getPixel(img, x, y):
+def getPxl(img, x, y):
     pxl = img.load()
     return pxl[x, y]
 
@@ -23,12 +23,17 @@ last = 0
 total_time = 0
 
 # Area of interest in the screen as rectangle can be formed using two coordinates
-# of diagonal
+# of diagonal and the screen resolution is 1920x1080 kindly change the values if the
+# screen resolution is diffenrnt
 x1, y1, x2, y2 = 0, 293, 1920, 465
 
 # the intervals where the bot will search for obstacles
 y_cactie, x_start, x_end = 350, 435, 450
 y_bird = 275  # for the birds
+
+print("Welcome to Dino bot v2.0 your game will start in 3 sec")
+time.sleep(2)
+
 # main bot loop
 while True:
     # initial time
@@ -43,18 +48,20 @@ while True:
 
     # Get a screen shot of Area of interest
     AoI = gui.screenshot(region=(x1, y1, x2, y2)).convert("L")
-    # AoI.show()
+    AoI.show()
+    break
     # Get the color of the world background
-    bgColor = getPixel(AoI, 440, 30)
+    bgColor = getPxl(AoI, 440, 30)
     # print(bgColor)
 
     for x in reversed(range(x_start, x_end)):
         # if i found a pixel in the search interval with a colour other than the bg colour,
         # then it is an obstacle
-        if getPixel(AoI, x, y_cactie) != bgColor or getPixel(AoI, x, y_bird) != bgColor:
+        if getPxl(AoI, x, y_cactie) != bgColor or getPxl(AoI, x, y_bird) != bgColor:
             keyboard.press(' ')  # jump
             break
     # final time
     t2 = time.time()-t1
     total_time += t2
-    print(total_time)
+
+    # print(total_time, x_end)
