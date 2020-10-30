@@ -25,6 +25,9 @@ x1, y1, x2, y2 = 0, 293, 1920, 465
 # main bot loop
 while True:
     # Get a screen shot
-    sct_img = gui.screenshot(region=(x1, y1, x2, y2))
-    sct_img.show()
+    sct_img = gui.screenshot(region=(x1, y1, x2, y2)).convert("L")
+    # sct_img.show()
+    # Get the color of the world background
+    bgColor = getPixel(sct_img, 440, 30)
+    print(bgColor)
     break
